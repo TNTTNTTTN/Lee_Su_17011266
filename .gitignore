@@ -1,0 +1,5 @@
+*.asv
+*.slxc
+*.slx.autosave
+slprj/
+picture/
