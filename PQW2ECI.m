@@ -3,7 +3,7 @@ ROT = DCMZ(RAAN)*DCMX(inc_angle)*DCMZ(arg_prg);
 end
 
 function MAT = DCMX(phi)
-MAT = [1 0 0; 0 cosd(phi) -sind(phi); 0 sind(phi) cos(phi)];
+MAT = [1 0 0; 0 cosd(phi) -sind(phi); 0 sind(phi) cosd(phi)];
 end
 
 function MAT = DCMY(theta)
