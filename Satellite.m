@@ -1,9 +1,5 @@
 classdef Satellite
-    %SATELLITE Summary of this class goes here
-    %   Detailed explanation goes here
-    
     properties
-        t0
         ecefdataset
         geodataset
         enudataset
@@ -11,6 +7,7 @@ classdef Satellite
         mu
         timestep
         M0
+        t0
         a
         e
         i
@@ -20,8 +17,6 @@ classdef Satellite
     
     methods
         function obj = Satellite(navdata, timestep)
-            %SATELLITE Construct an instance of this class
-            %   Detailed explanation goes here
             obj.wgs84 = wgs84Ellipsoid('kilometer');
             obj.mu = 3.986004418*10^5; % [km^3/sec^2]
             obj.t0 = datetime(navdata.toc);
@@ -37,8 +32,6 @@ classdef Satellite
             obj.enudataset = [];
         end
         function ECEF = Set_ecef(obj)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
             ECEF = [];
             timerange = 5*24*3600/obj.timestep; % split 5 days by timestep
             for k = 0:timerange
